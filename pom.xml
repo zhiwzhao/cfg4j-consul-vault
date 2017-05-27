@@ -4,7 +4,7 @@
 
 	<groupId>org.cfg4j</groupId>
 	<artifactId>cfg4j-consul-vault</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>cfg4j-consul-vault</name>
