@@ -9,14 +9,12 @@ In many cases,there are many secrets need to store in vault [https://www.vaultpr
 This library is designed to process this scenario, load secret along with consul.
 
 ## How to use ##
-@Provides
+        @Provides
     ConfigurationProvider provideConsulConfiguration() {
     	// rewrite new VaultRepository implement if DefaultVaultRepository is not satisfied requirement      
         VaultRepository vaultRepository=new DefaultVaultRepository();
         vaultRepository.setConsulEnvironment(config.getString(CONSUL_ENV_KEY));
         ConfigurationSource source = new ConsulVaultConfigurationSourceBuilder().build(vaultRepository);
-        
-        // Reload configuration every x seconds
         ReloadStrategy reloadStrategy = new PeriodicalReloadStrategy(config.getLong(RELOAD_IN_SECONDS_KEY),TimeUnit.SECONDS);
         // Create provider
         return new ConfigurationProviderBuilder()
