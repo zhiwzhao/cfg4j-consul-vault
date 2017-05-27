@@ -11,7 +11,7 @@ This library is designed to process this scenario, load secret along with consul
 ## How to use ##
 @Provides
     ConfigurationProvider provideConsulConfiguration() {
-    	//rewrite new VaultRepository implement if DefaultVaultRepository is not satisfied requirement      
+    	// rewrite new VaultRepository implement if DefaultVaultRepository is not satisfied requirement      
         VaultRepository vaultRepository=new DefaultVaultRepository();
         vaultRepository.setConsulEnvironment(config.getString(CONSUL_ENV_KEY));
         ConfigurationSource source = new ConsulVaultConfigurationSourceBuilder().build(vaultRepository);
